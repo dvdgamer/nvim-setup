@@ -50,7 +50,6 @@ require('packer').startup(function(use)
   	end
   }
 
-  -- specify on c files that commentstring == '/*%s*/', default == '//%s'
 
   -- Codam header
   use {
@@ -94,11 +93,12 @@ require('nvim-treesitter.configs').setup({
   ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css", "json", "markdown", "c", "rust", "cpp" }, -- List of languages to install
 })
 
+-- specify on c files that commentstring == '/*%s*/', default == '//%s'
 -- Import filetype settings
 require('filetypes').setup()
 
 -- Enable default syntax highlighting (optional)
-vim.cmd('syntax on')
+-- vim.cmd('syntax on')
 
 -- Enable filetype detection and plugins
 vim.cmd('filetype plugin indent on')
