@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/dponte/.local/share/nvim/site/pack/packer/start/monokai.nvim",
     url = "https://github.com/tanvirtin/monokai.nvim"
   },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/dponte/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/dponte/.local/share/nvim/site/pack/packer/start/nvim-treesitter",

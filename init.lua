@@ -35,6 +35,7 @@ local packer_bootstrap = ensure_packer()
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer itself
   use 'nvim-treesitter/nvim-treesitter' -- Treesitter for syntax highlighting
+  use 'neovim/nvim-lspconfig'  --LSP 
 
   -- Other useful plugins
   use 'nvim-lua/plenary.nvim' -- Useful Lua functions used by lots of plugins
@@ -48,15 +49,10 @@ require('packer').startup(function(use)
 		require('monokai').setup { palette = require('monokai').classic }
   	end
   }
---  use {
---   "loctvl842/monokai-pro.nvim",
---   config = function()
---     require("monokai-pro").setup()
---   end
---  }
+
+  -- specify on c files that commentstring == '/*%s*/', default == '//%s'
 
   -- Codam header
-  -- specify on c files that commentstring == '/*%s*/', default == '//%s'
   use {
     "BeerB34r/codam-header.nvim",
     cmd = { "Stdheader" },
@@ -91,14 +87,15 @@ require('packer').startup(function(use)
 end)
 
 -- Enable Treesitter
-require('nvim-treesitter.configs').setup {
+require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true, -- Enable syntax highlighting
   },
-  ensure_installed = { "lua", "python", "javascript", "typescript", "html",
-  "css", "json", "markdown", "c", "rust", "cpp"}, -- List of languages to install
-}
+  ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css", "json", "markdown", "c", "rust", "cpp" }, -- List of languages to install
+})
 
+-- Import filetype settings
+require('filetypes').setup()
 
 -- Enable default syntax highlighting (optional)
 vim.cmd('syntax on')
@@ -139,6 +136,6 @@ vim.opt.ruler = true
 -- Set a theme 
 --vim.cmd('colorscheme tokyonight')
 --vim.cmd([[colorscheme monokai-pro]])
---vim.cmd('colorscheme monokai')
+-- vim.cmd('colorscheme monokai')
 
 
