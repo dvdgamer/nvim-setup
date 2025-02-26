@@ -36,6 +36,11 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Packer itself
   use 'nvim-treesitter/nvim-treesitter' -- Treesitter for syntax highlighting
   use 'neovim/nvim-lspconfig'  --LSP 
+  use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.8',      -- Telescope
+  -- or                            , branch = '0.1.x',
+  requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
   -- Other useful plugins
   use 'nvim-lua/plenary.nvim' -- Useful Lua functions used by lots of plugins
@@ -118,8 +123,8 @@ vim.opt.hlsearch = false
 -- Default tab size
 vim.opt.tabstop = 4
 
--- Doesn't tranform tabs into spaces
-vim.opt.smarttab = false
+-- Tranform tabs into spaces
+vim.opt.smarttab = true
 
 -- Auto indent
 vim.opt.ai = true
