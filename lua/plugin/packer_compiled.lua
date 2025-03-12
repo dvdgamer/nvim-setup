@@ -74,15 +74,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["codam-header.nvim"] = {
-    commands = { "Stdheader" },
-    config = { "\27LJ\2\2Ï\1\0\0\3\0\a\0\v6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0005\2\4\0=\2\5\0014\2\0\0=\2\6\1B\0\2\1K\0\1\0\fexascii\bgit\1\0\4\16user_global\2\fenabled\1\bbin\bgit\17email_global\2\1\0\4\17exascii_left\1\16auto_update\2\tuser\vdponte\tmail\28dponte@student.codam.nl\nsetup\16codamheader\frequire\0" },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/dponte/.local/share/nvim/site/pack/packer/opt/codam-header.nvim",
-    url = "https://github.com/BeerB34r/codam-header.nvim"
-  },
   ["monokai.nvim"] = {
     config = { "\27LJ\2\2\\\0\0\4\0\6\0\f6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0006\2\0\0'\3\1\0B\2\2\0029\2\3\2=\2\5\1B\0\2\1K\0\1\0\fpalette\1\0\0\bpro\nsetup\fmonokai\frequire\0" },
     loaded = true,
@@ -131,18 +122,6 @@ time([[Defining packer_plugins]], false)
 time([[Config for monokai.nvim]], true)
 try_loadstring("\27LJ\2\2\\\0\0\4\0\6\0\f6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0006\2\0\0'\3\1\0B\2\2\0029\2\3\2=\2\5\1B\0\2\1K\0\1\0\fpalette\1\0\0\bpro\nsetup\fmonokai\frequire\0", "config", "monokai.nvim")
 time([[Config for monokai.nvim]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Stdheader', function(cmdargs)
-          require('packer.load')({'codam-header.nvim'}, { cmd = 'Stdheader', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'codam-header.nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Stdheader ', 'cmdline')
-      end})
-time([[Defining lazy-load commands]], false)
-
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

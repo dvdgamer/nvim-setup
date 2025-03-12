@@ -11,11 +11,6 @@
 -- ************************************************************************** --
 
 --plug#begin('~/.neovim-plugins')
---
---set ruler
---set number
---set ai
---set smartcase
 
 -- Bootstrap Packer
 local ensure_packer = function()
@@ -49,13 +44,14 @@ require('packer').startup(function(use)
   -- Themes
   use 'folke/tokyonight.nvim'
   use {
-	'tanvirtin/monokai.nvim',
+   'tanvirtin/monokai.nvim',
   	config = function()
-		require('monokai').setup { palette = require('monokai').classic }
+ 	require('monokai').setup { palette = require('monokai').pro }
   	end
   }
 
 
+  -- require('codam-header')
   -- Codam header
   use {
     "BeerB34r/codam-header.nvim",
@@ -83,7 +79,7 @@ require('packer').startup(function(use)
         }
       end,
   }
-
+  --
   -- Auto-install and update Treesitter
   if packer_bootstrap then
     require('packer').sync()
@@ -95,52 +91,16 @@ require('nvim-treesitter.configs').setup({
   highlight = {
     enable = true, -- Enable syntax highlighting
   },
-  ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css", "json", "markdown", "c", "rust", "cpp" }, -- List of languages to install
+  ensure_installed = { "lua", "python", "javascript", "typescript", "html", "css", "json", "markdown", "c", "rust", "cpp" 
+  }, -- List of languages to install
+
 })
 
--- specify on c files that commentstring == '/*%s*/', default == '//%s'
+
 -- Import filetype settings
 require('filetypes').setup()
+require('options')
 
--- Enable default syntax highlighting (optional)
--- vim.cmd('syntax on')
-
--- Enable filetype detection and plugins
-vim.cmd('filetype plugin indent on')
-
--- Set numbers to the left
-vim.opt.number = true
-
--- Ignore case
-vim.opt.ignorecase = true
-
--- Smart case
-vim.opt.smartcase = true
-
--- Ignore results of previous search
-vim.opt.hlsearch = false
-
--- Default tab size
-vim.opt.tabstop = 4
-
--- Tranform tabs into spaces
-vim.opt.smarttab = true
-
--- Auto indent
-vim.opt.ai = true
-
--- Smart case
-vim.opt.smartcase = true
-
--- Relative number
-vim.opt.relativenumber = true
-
--- Ruler 
-vim.opt.ruler = true
-
--- Set a theme 
---vim.cmd('colorscheme tokyonight')
---vim.cmd([[colorscheme monokai-pro]])
--- vim.cmd('colorscheme monokai')
-
-
+vim.cmd([[colorscheme monokai]])
+-- require('plugin.codam-header').setup()
+-- -- specify on c files that commentstring == '/*%s*/', default == '//%s'
