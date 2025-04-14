@@ -1,10 +1,6 @@
 local opt = vim.opt
 local g = vim.g
 
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
-
 -- Enable default syntax highlighting (optional)
 vim.cmd('syntax on')
 
@@ -55,15 +51,18 @@ vim.opt.splitbelow = true
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
--- Ruler 
+-- Ruler
 vim.opt.ruler = true
 
+-- KEYMAPS --
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+vim.keymap.set('n', '<leader>kt', ':Telescope colorscheme<CR>', { desc = 'Choose colorscheme' })
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -74,7 +73,7 @@ vim.opt.cursorline = true
 -- swapfile
 vim.opt.swapfile = false
 
-vim.opt.showcmd = true 
+vim.opt.showcmd = true
 vim.opt.textwidth = 80
 
 -- Pastebuffer

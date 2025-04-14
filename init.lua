@@ -1,3 +1,7 @@
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Disables netrw for better file explorers
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -12,7 +16,7 @@ local function load_modules()
 
   -- Import filetype settings
   require('filetypes').setup()
-  
+
   -- Load plugin configurations
   require('plugins.treesitter')
   require('plugins.lsp')
@@ -50,7 +54,7 @@ require('packer').startup(function(use)
     run = 'TSupdate',
     commit = 'e8b123a',  -- Pinned stable commit
     config = require('plugins.treesitter').config
-  } 
+  }
 
   -- Autoformatting
   use { 'jose-elias-alvarez/null-ls.nvim' }
@@ -68,7 +72,7 @@ require('packer').startup(function(use)
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
 }
 
-  -- Autocompletion 
+  -- Autocompletion
   use {
     'hrsh7th/nvim-cmp',
     config = require('plugins.cmp').config
@@ -129,7 +133,7 @@ require('packer').startup(function(use)
       require('monokai').setup { palette = require('monokai').classic }
     end
   }
-  
+
   -- Auto-install and update Treesitter
   if packer_bootstrap then
     require('packer').sync()
@@ -137,7 +141,6 @@ require('packer').startup(function(use)
 end)
 
 -- specify on c files that commentstring == '/*%s*/', default == '//%s'
-
 -- Load modules with error handling
 local ok, err = pcall(load_modules)
 if not ok then
