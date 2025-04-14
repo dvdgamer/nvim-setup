@@ -27,7 +27,7 @@ vim.opt.hlsearch = false
 vim.opt.tabstop = 2
 
 -- Tranform tabs into spaces
-vim.opt.smarttab = true
+vim.opt.smarttab = false
 
 -- Auto indent
 vim.opt.ai = true
