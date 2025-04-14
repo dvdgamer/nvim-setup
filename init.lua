@@ -6,7 +6,7 @@
 --   By: dponte <dponte@student.codam.nl>                  +#+                --
 --                                                        +#+                 --
 --   Created: 2025/03/18 19:01:23 by dponte              #+#    #+#           --
---   Updated: 2025/03/18 19:01:41 by dponte              ########   odam.nl   --
+--   Updated: 2025/03/18 19:18:35 by dponte              ########   odam.nl   --
 --                                                                            --
 --                       ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡯⠟⠛⠋⠉⠉⠉⠉⠉⠙⠛⠓⠿⠿⣟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿   --
 --                       ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡯⠞⠋⢁⡀⠤⠀⠒⠀⠀⠀⠐⠒⠠⢀⠢⠀⠀⠀⠉⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿   --
@@ -63,7 +63,6 @@ local ensure_packer = function()
   return false
 end
 
-
 local packer_bootstrap = ensure_packer()
 
 -- Initialize Packer
@@ -92,6 +91,12 @@ require('packer').startup(function(use)
    config = require('plugins.lsp').config
   }
 
+  -- File-browser
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+}
+
   -- Autocompletion 
   use {
     'hrsh7th/nvim-cmp',
@@ -109,6 +114,15 @@ require('packer').startup(function(use)
     config = require('plugins.telescope').config
   }
 
+	-- Error Lens
+	use {
+    'chikko80/error-lens.nvim',
+    requires = {'nvim-telescope/telescope.nvim'}
+	}
+	require("error-lens").setup(client, {
+    -- your options go here
+})
+
   -- UI
   use {
     'kyazdani42/nvim-web-devicons',
@@ -124,12 +138,15 @@ require('packer').startup(function(use)
 	config = require('plugins.codam-header').config
   }
   -- Themes
+		-- I now use tekescope's colorscheme selector
   use 'folke/tokyonight.nvim'
+  pcall(vim.cmd[[colorscheme tokyonight]])
+
   use {
     'tanvirtin/monokai.nvim',
     config = function()
       pcall(vim.cmd, [[colorscheme monokai]])
-      require('monokai').setup { palette = require('monokai').pro }
+      require('monokai').setup { palette = require('monokai').classic }
     end
   }
   
