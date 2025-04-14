@@ -128,6 +128,11 @@ _G.packer_plugins = {
     path = "/home/david/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/david/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     after = { "nvim-lspconfig" },
     config = { "\27LJ\2\2Œ\2\0\0\3\0\f\0\0156\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\0015\2\n\0=\2\v\1B\0\2\1K\0\1\0\21ensure_installed\1\f\0\0\6c\blua\vpython\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\trust\bcpp\vindent\1\0\1\venable\2\26incremental_selection\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
@@ -205,10 +210,10 @@ end
 time([[Config for monokai.nvim]], true)
 try_loadstring("\27LJ\2\2–\1\0\0\4\0\n\0\0176\0\0\0006\1\1\0009\1\2\1'\2\3\0B\0\3\0016\0\4\0'\1\5\0B\0\2\0029\0\6\0005\1\b\0006\2\4\0'\3\5\0B\2\2\0029\2\a\2=\2\t\1B\0\2\1K\0\1\0\fpalette\1\0\0\fclassic\nsetup\fmonokai\frequire\24colorscheme monokai\bcmd\bvim\npcall\0", "config", "monokai.nvim")
 time([[Config for monokai.nvim]], false)
--- Config for: nvim-treesitter
-time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\2Œ\2\0\0\3\0\f\0\0156\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\0015\2\n\0=\2\v\1B\0\2\1K\0\1\0\21ensure_installed\1\f\0\0\6c\blua\vpython\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\trust\bcpp\vindent\1\0\1\venable\2\26incremental_selection\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
-time([[Config for nvim-treesitter]], false)
+-- Config for: telescope.nvim
+time([[Config for telescope.nvim]], true)
+try_loadstring("\27LJ\2\2ˆ\2\0\0\b\0\17\0\0286\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\14\0005\2\f\0005\3\3\0005\4\b\0005\5\6\0006\6\0\0'\a\4\0B\6\2\0029\6\5\6=\6\a\5=\5\t\0044\5\0\0=\5\n\4=\4\v\3=\3\r\2=\2\15\1B\0\2\0016\0\0\0'\1\1\0B\0\2\0029\0\16\0'\1\r\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\0\17file_browser\1\0\0\rmappings\6n\6i\1\0\0\n<Esc>\1\0\0\nclose\22telescope.actions\1\0\2\17hijack_netrw\2\ntheme\bivy\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
+time([[Config for telescope.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 try_loadstring("\27LJ\2\2\2\0\0\a\0\17\0\0306\0\0\0'\1\1\0B\0\2\0029\1\2\0005\2\6\0004\3\4\0005\4\3\0>\4\1\0035\4\4\0>\4\2\0035\4\5\0>\4\3\3=\3\a\0029\3\b\0009\3\t\0039\3\n\0035\4\f\0009\5\b\0009\5\v\5B\5\1\2=\5\r\0049\5\b\0009\5\14\0055\6\15\0B\5\2\2=\5\16\4B\3\2\2=\3\b\2B\1\2\1K\0\1\0\t<CR>\1\0\1\vselect\2\fconfirm\14<C-Space>\1\0\0\rcomplete\vinsert\vpreset\fmapping\fsources\1\0\0\1\0\1\tname\tpath\1\0\1\tname\vbuffer\1\0\1\tname\rnvim_lsp\nsetup\bcmp\frequire\0", "config", "nvim-cmp")
@@ -217,10 +222,10 @@ time([[Config for nvim-cmp]], false)
 time([[Config for nvim-web-devicons]], true)
 try_loadstring("\27LJ\2\2O\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B\0\2\1K\0\1\0\1\0\1\fdefault\2\nsetup\22nvim-web-devicons\frequire\0", "config", "nvim-web-devicons")
 time([[Config for nvim-web-devicons]], false)
--- Config for: telescope.nvim
-time([[Config for telescope.nvim]], true)
-try_loadstring("\27LJ\2\2ˆ\2\0\0\b\0\17\0\0286\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\14\0005\2\f\0005\3\3\0005\4\b\0005\5\6\0006\6\0\0'\a\4\0B\6\2\0029\6\5\6=\6\a\5=\5\t\0044\5\0\0=\5\n\4=\4\v\3=\3\r\2=\2\15\1B\0\2\0016\0\0\0'\1\1\0B\0\2\0029\0\16\0'\1\r\0B\0\2\1K\0\1\0\19load_extension\15extensions\1\0\0\17file_browser\1\0\0\rmappings\6n\6i\1\0\0\n<Esc>\1\0\0\nclose\22telescope.actions\1\0\2\17hijack_netrw\2\ntheme\bivy\nsetup\14telescope\frequire\0", "config", "telescope.nvim")
-time([[Config for telescope.nvim]], false)
+-- Config for: nvim-treesitter
+time([[Config for nvim-treesitter]], true)
+try_loadstring("\27LJ\2\2Œ\2\0\0\3\0\f\0\0156\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\0015\2\n\0=\2\v\1B\0\2\1K\0\1\0\21ensure_installed\1\f\0\0\6c\blua\vpython\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\trust\bcpp\vindent\1\0\1\venable\2\26incremental_selection\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+time([[Config for nvim-treesitter]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-lspconfig ]]
