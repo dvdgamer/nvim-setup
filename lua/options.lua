@@ -1,6 +1,10 @@
 local opt = vim.opt
 local g = vim.g
 
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 -- Enable default syntax highlighting (optional)
 vim.cmd('syntax on')
 

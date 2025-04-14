@@ -118,7 +118,7 @@ require('packer').startup(function(use)
   }
 
   -- Themes
-		-- I now use tekescope's colorscheme selector
+	-- I now use tekescope's colorscheme selector
   use 'folke/tokyonight.nvim'
   pcall(vim.cmd[[colorscheme tokyonight]])
 
