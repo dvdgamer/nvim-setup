@@ -70,8 +70,7 @@ require('packer').startup(function(use)
   use {
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-}
-
+  }
   -- Autocompletion
   use {
     'hrsh7th/nvim-cmp',
@@ -96,7 +95,7 @@ require('packer').startup(function(use)
 	}
 	require("error-lens").setup(client, {
     -- your options go here
-})
+  })
 
   -- Nvim-tree
   use {

@@ -63,6 +63,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 vim.keymap.set('n', '<leader>kt', ':Telescope colorscheme<CR>', { desc = 'Choose colorscheme' })
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files<CR>', { desc = 'Find Files'})
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { desc = 'Toggle NvimTree'})
+
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
