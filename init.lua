@@ -54,8 +54,9 @@ require('packer').startup(function(use)
   -- Syntax/parsing
   use {
     'nvim-treesitter/nvim-treesitter' ,
+		build = ':TSUpdate',
     run = 'TSupdate',
-    commit = 'e8b123a',  -- Pinned stable commit
+		tag = 'v0.9.1',
     config = require('plugins.treesitter').config
   }
 
@@ -94,11 +95,13 @@ require('packer').startup(function(use)
 	-- Error Lens
 	use {
     'chikko80/error-lens.nvim',
-    requires = {'nvim-telescope/telescope.nvim'}
+    requires = {'nvim-telescope/telescope.nvim'},
+		config = function()
+			require("error-lens").setup({
+      -- your options go here
+  		})
+		end
 	}
-	require("error-lens").setup(client, {
-    -- your options go here
-  })
 
   -- UI
   use {
@@ -122,6 +125,10 @@ require('packer').startup(function(use)
 	cmd = "Stdheader",
 	config = require('plugins.codam-header').config
   }
+
+  -- Highlight todo, notes, etc in comments
+  use { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } }
+
 
   -- Themes
 	-- I now use tekescope's colorscheme selector

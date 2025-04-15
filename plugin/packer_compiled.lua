@@ -135,7 +135,7 @@ _G.packer_plugins = {
   },
   ["nvim-treesitter"] = {
     after = { "nvim-lspconfig" },
-    config = { "\27LJ\2\2Œ\2\0\0\3\0\f\0\0156\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\0015\2\n\0=\2\v\1B\0\2\1K\0\1\0\21ensure_installed\1\f\0\0\6c\blua\vpython\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\trust\bcpp\vindent\1\0\1\venable\2\26incremental_selection\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
+    config = { "\27LJ\2\2ì\2\0\0\4\0\16\0\0196\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\6\0005\2\3\0005\3\4\0=\3\5\2=\2\a\0015\2\b\0=\2\t\0015\2\n\0005\3\v\0=\3\f\2=\2\r\0015\2\14\0=\2\15\1B\0\2\1K\0\1\0\21ensure_installed\1\16\0\0\6c\blua\vpython\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\trust\bcpp\tdiff\bvim\nquery\tbash\vindent\fdisable\1\2\0\0\truby\1\0\1\venable\2\26incremental_selection\1\0\1\venable\2\14highlight\1\0\0&additional_vim_regex_highlighting\1\2\0\0\truby\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
     only_config = true,
     path = "/home/david/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
@@ -169,6 +169,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/david/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/david/.local/share/nvim/site/pack/packer/opt/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
@@ -224,7 +231,7 @@ try_loadstring("\27LJ\2\2O\0\0\2\0\4\0\a6\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\3\0B
 time([[Config for nvim-web-devicons]], false)
 -- Config for: nvim-treesitter
 time([[Config for nvim-treesitter]], true)
-try_loadstring("\27LJ\2\2Œ\2\0\0\3\0\f\0\0156\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\4\0005\2\3\0=\2\5\0015\2\6\0=\2\a\0015\2\b\0=\2\t\0015\2\n\0=\2\v\1B\0\2\1K\0\1\0\21ensure_installed\1\f\0\0\6c\blua\vpython\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\trust\bcpp\vindent\1\0\1\venable\2\26incremental_selection\1\0\1\venable\2\14highlight\1\0\0\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
+try_loadstring("\27LJ\2\2ì\2\0\0\4\0\16\0\0196\0\0\0'\1\1\0B\0\2\0029\0\2\0005\1\6\0005\2\3\0005\3\4\0=\3\5\2=\2\a\0015\2\b\0=\2\t\0015\2\n\0005\3\v\0=\3\f\2=\2\r\0015\2\14\0=\2\15\1B\0\2\1K\0\1\0\21ensure_installed\1\16\0\0\6c\blua\vpython\15javascript\15typescript\thtml\bcss\tjson\rmarkdown\trust\bcpp\tdiff\bvim\nquery\tbash\vindent\fdisable\1\2\0\0\truby\1\0\1\venable\2\26incremental_selection\1\0\1\venable\2\14highlight\1\0\0&additional_vim_regex_highlighting\1\2\0\0\truby\1\0\1\venable\2\nsetup\28nvim-treesitter.configs\frequire\0", "config", "nvim-treesitter")
 time([[Config for nvim-treesitter]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
@@ -246,6 +253,13 @@ pcall(vim.api.nvim_create_user_command, 'Stdheader', function(cmdargs)
       end})
 time([[Defining lazy-load commands]], false)
 
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Event lazy-loads
+time([[Defining lazy-load event autocommands]], true)
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'todo-comments.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+time([[Defining lazy-load event autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
