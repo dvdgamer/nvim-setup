@@ -14,6 +14,9 @@ local function load_modules()
   -- Load core settings first
   require('options')         -- Basic vim options
 
+	-- Load keymaps
+	require('keymaps')
+
   -- Import filetype settings
   require('filetypes').setup()
 
@@ -97,20 +100,20 @@ require('packer').startup(function(use)
     -- your options go here
   })
 
-  -- Nvim-tree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional
-    },
-  }
-
   -- UI
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
       require('nvim-web-devicons').setup({ default = true })
     end
+  }
+
+  -- Nvim-tree
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional
+    },
   }
 
   -- Codam header
